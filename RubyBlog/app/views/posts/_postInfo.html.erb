@@ -5,18 +5,24 @@
   		<div class="media-content">
   			<div class="content">
 
-			  <div class="columns">
-			  	<div class="column post">
-				  	<p>Posted by <%= post.user.username%></p>
-				</div>
+	
+
+				<div class="columns">
+				<div class="column post">
+					<h1 class="post-title"><%= post.title %></h1>	
+					<p class="post-title"><i><%= post.category.name %></i></p>
+				</div>		
 				<div class="column post ">
-					<p class="is-pulled-right has-text-grey	"><%= post.created_at.strftime("%B %d, %Y") %></p>	
+					<p class="is-pulled-right has-text-grey	posted-by"><%= post.created_at.strftime("%B %d, %Y") %></p>
+					<p class="is-pulled-right">Posted by <%= post.user.username%></p>
 				</div>					  
 			  </div>
-				<h1 class="post-title"><%= post.title %></h1>	
 				<div>
 					<p><%= post.content %></p>
 				</div>
+
+
+
   			</div>
      
   			<nav class="level">
