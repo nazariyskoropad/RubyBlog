@@ -4,19 +4,19 @@
 
   		<div class="media-content">
   			<div class="content">
-			  <div class="columns">
-			  	<div class="column">
-			  	  	<h1><%= post.title %></h1>	
-				</div>
-				<div class="column  ">
-					<p class="is-pulled-right has-text-grey	"><%= post.created_at.strftime("%B %d, %Y") %></p>	
-				</div>
-					  
-			  </div>
-			
-		
 
-				<p><%= post.content %></p>
+			  <div class="columns">
+			  	<div class="column post">
+				  	<p>Posted by <%= post.user.username%></p>
+				</div>
+				<div class="column post ">
+					<p class="is-pulled-right has-text-grey	"><%= post.created_at.strftime("%B %d, %Y") %></p>	
+				</div>					  
+			  </div>
+				<h1 class="post-title"><%= post.title %></h1>	
+				<div>
+					<p><%= post.content %></p>
+				</div>
   			</div>
      
   			<nav class="level">
@@ -25,14 +25,17 @@
   					  <button class="button is-success">Go to post</button>
   					<% end %>
 				</div>
-				<div class="level-right">
-  					<%= link_to edit_post_path (post), class: "level-item" do %>
-  					  <button class="button is-warning">Edit</button>
-  					<% end %>
-  					<%= link_to post, method: :delete, data: { confirm: "Are you sure you want to delete this post?" } do %>
-						<button class="button is-danger">Delete</button>
-  					<% end %>
-  				</div>
+				            <% if (user_signed_in? && current_user.username.eql?(post.user.username))%>
+
+					<div class="level-right">
+						<%= link_to edit_post_path (post), class: "level-item" do %>
+						<button class="button is-warning">Edit</button>
+						<% end %>
+						<%= link_to post, method: :delete, data: { confirm: "Are you sure you want to delete this post?" } do %>
+							<button class="button is-danger">Delete</button>
+						<% end %>
+					</div>
+			<% end%>
   			</nav>
 
   		</div>
