@@ -10,15 +10,15 @@
 				<div class="columns">
 				<div class="column post">
 					<h1 class="post-title"><%= post.title %></h1>	
-					<p class="post-title"><i><%= post.category.name %></i></p>
+					<p class="post-title"><i>Category: <%= post.category.name %></i></p>
 				</div>		
 				<div class="column post ">
 					<p class="is-pulled-right has-text-grey	posted-by"><%= post.created_at.strftime("%B %d, %Y") %></p>
 					<p class="is-pulled-right">Posted by <%= post.user.username%></p>
 				</div>					  
 			  </div>
-				<div>
-					<p><%= post.content %></p>
+				<div class="post-content">
+					<p><%= post.content.slice(0, 10) %>...</p>
 				</div>
 
 
@@ -28,7 +28,7 @@
   			<nav class="level">
   				<div class="level-left">
   					<%= link_to post, class: "level-item" do %>
-  					  <button class="button is-success">Go to post</button>
+  					  <button class="button is-success">Read all</button>
   					<% end %>
 				</div>
 				            <% if (user_signed_in? && current_user.username.eql?(post.user.username))%>
