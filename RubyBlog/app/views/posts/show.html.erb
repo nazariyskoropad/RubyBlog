@@ -1,14 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <div class="columns">
+          <div class="column post">
+            <h1 class="post-title"><%= @post.title %></h1>	
+            <p class="post-title"><i>Category: <%= @post.category.name %></i></p>
+          </div>		
+          <div class="column post ">
+            <p class="is-pulled-right has-text-grey	posted-by"><%= @post.created_at.strftime("%B %d, %Y") %></p>
+            <p class="is-pulled-right">Posted by <%= @post.user.username%></p>
+          </div>					  
+          </div>
+        <div class="post-content">
+          <p><%= @post.content%></p>
+        </div>
+      </div>
+    </div>
+    
+  </article>
+  <%= link_to 'Back', posts_path %> 
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
