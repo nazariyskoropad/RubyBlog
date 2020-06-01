@@ -40,7 +40,7 @@
                 <%= link_to current_user.username, edit_user_registration_path, class: "button is-primary" %>
               </p>
               <p>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"button is-primary" %>
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:"button is-primary" %>
               </p>
             <% else %>
             <p class="control">

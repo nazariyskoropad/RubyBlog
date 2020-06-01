@@ -1,12 +1,8 @@
 <% @posts.each do | post | %>
   <div class="box">
   	<article class="media">
-
   		<div class="media-content">
   			<div class="content">
-
-	
-
 				<div class="columns">
 				<div class="column post">
 					<h1 class="post-title"><%= post.title %></h1>	
@@ -20,9 +16,6 @@
 				<div class="post-content">
 					<p><%= post.content.slice(0, 10) %>...</p>
 				</div>
-
-
-
   			</div>
      
   			<nav class="level">
@@ -43,7 +36,6 @@
 					</div>
 			<% end%>
   			</nav>
-
   		</div>
   	</article>
   </div>
